@@ -5,12 +5,7 @@ const express = require("express");
 const server = express();
 const path = require("path");
 
-//server.use(express.static(path.join(__dirname, "..", "public")));
-
-server.get("/", (req, res) => res.redirect("/desserts"));
-server.get("/desserts", (req, res) =>
-  res.sendFile(path.join(__dirname, "index.html"))
-);
+server.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
 
 server.get("/desserts", async (req, res, next) => {
   try {
